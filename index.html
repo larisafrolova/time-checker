@@ -2,38 +2,53 @@
 <html land="en">
     <head>
         <title>Time Checker app</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="header">
+        <div class="block block-header">
             <h1>What time is the meeting?</h1>
             <p>Plan your participation in international online meetings? Check what time it will be in your area when the meeting takes place.</p>
         </div>
-        <div id="main-page">
-            <div>
-                <h4>Host city</h4>
+        <div class="block block-input">
+            <div class="block-input__items block-input__items--host">
+                <h3>Host city</h3>
                 <form>
-                    <label for="hcity">City</label>
-                    <input type="text" id="hcity" name="city"><br><br>
-                    <label for="hdate">Date</label>
-                    <input type="text" id="hdate" name="date"><br><br>
-                    <label for="hdate">Time</label>
-                    <input type="text" id="htime" name="time"><br><br>
-                    <input type="submit" value="Submit">
+                    <div class="block-input__item">
+                        <label for="hcity">City</label>
+                        <input class="block-input__input" type="text" id="hcity" name="city">
+                    </div>
+                    <div class="block-input__item">
+                        <label for="hdate">Date</label>
+                    <input class="block-input__input" type="text" id="hdate" name="date">
+                    </div>
+                    <div class="block-input__item">
+                        <label for="hdate">Time</label>
+                    <input class="block-input__input" type="text" id="htime" name="time">
+                    </div>
                   </form>
             </div>
-            <div>
-                <h4>Your location</h4>
+            <div class="block-input__items block-input__items--local">
+                <h3>Your location</h3>
                 <form>
-                    <label for="hcity">City</label>
-                    <input type="text" id="hcity" name="city"><br><br>
-                    <label for="hdate">Date</label>
-                    <input type="text" id="hdate" name="date"><br><br>
-                    <label for="hdate">Time</label>
-                    <input type="text" id="htime" name="time"><br><br>
+                    <div class="block-input__item">
+                        <label for="hcity">City</label>
+                        <input class="block-input__input block-input__input--local" type="text" id="hcity" name="city">
+                    </div>
+                    <div class="block-input__item block-input__item--local">
+                        <label for="hdate">Date</label>
+                    <input class="block-input__input block-input__input--local" type="text" id="hdate" name="date">
+                    </div>
+                    <div class="block-input__item block-input__item--local">
+                        <label for="hdate">Time</label>
+                    <input class="block-input__input block-input__input--local" type="text" id="htime" name="time">
+                    </div>
                   </form>
             </div>
         </div>
-        <div id="result-message">
+        <div class="block block-submit">
+            <input class="block-submit__input" type="submit" value="Find out!">
+        </div>
+        <div class="block block-result">
             <div>
                 <p>On November, 17 2022 at 4:00pm in Sydney (Australia) it will be November, 17 2022 7:00pm in Warsaw (Poland).</p>
             </div>

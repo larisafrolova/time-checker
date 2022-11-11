@@ -1,1 +1,82 @@
-ECHO is on.
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 20px;
+}
+
+.block {
+    margin:50px 100px auto 100px;
+    text-align: center;
+    /* border: 1px solid rgb(223, 223, 223); */
+    /* border-radius: 5px; */
+    /* background-color: rgb(225, 224, 224); */
+}
+
+.block-header h1 {
+    color:rgb(127, 0, 152);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.block-input__items {
+    display: inline-block;
+    /* border: 1px solid grey; */
+    border-radius: 5px;
+    background-color: rgb(121, 1, 146);
+    padding: 0 20px 30px 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.block-input__items--host {
+    color: white;
+}
+
+.block-input__items--local {
+    background-color: white;
+    /* box-shadow: 5px 10px rgb(160, 160, 160);
+    border: 1px solid grey; */
+    box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
+}
+
+
+.block-input__item label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.block-input__input {
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+    /* border: 1.2px solid rgb(185, 185, 185); */
+    border: 0;
+}
+
+.block-input__input--local {
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.block-input__item {
+    margin-bottom: 10px;
+}
+
+.block-submit__input {
+    border-radius: 5px;
+    background-color: rgb(121, 1, 146);
+    border: 1px solid rgb(121, 1, 146);
+    padding: 10px 20px;
+    color: white;
+    font-size: 25px;
+}
+
+.block-submit__input:hover {
+    background-color: white;
+    border: 1px solid rgb(121, 1, 146);
+    color: rgb(121, 1, 146);
+}
+
