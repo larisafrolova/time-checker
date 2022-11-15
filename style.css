@@ -53,6 +53,16 @@ body {
     background-color: white;
 }
 
+/* .block-input__input--inactive {
+    background-color: rgb(228, 228, 228);
+} */
+
+*:disabled {
+    background-color: rgb(228, 228, 228);
+    color:linen;
+    opacity: 1;
+}
+
 .block-input__items h3{
     text-align: center;
 }
