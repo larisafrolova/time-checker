@@ -103,7 +103,7 @@ body {
     margin-bottom: 10px;
 }
 
-.block-submit__input {
+.block-submit__btn {
     border-radius: 5px;
     background-color: rgb(121, 1, 146);
     border: 1.5px solid rgb(121, 1, 146);
@@ -113,7 +113,7 @@ body {
     
 }
 
-.block-submit__input:hover {
+.block-submit__btn:hover {
     background-color: white;
     border: 1.5px solid rgb(121, 1, 146);
     color: rgb(121, 1, 146);
@@ -127,6 +127,7 @@ body {
     box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
     width: 300px;
     text-align: center;
+    visibility: hidden;
 }
 
 @media (min-width: 480px){ 
