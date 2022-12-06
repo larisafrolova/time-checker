@@ -15,7 +15,7 @@
         <div class="block block-input">
             <div class="block-input__items block-input__items--host">
                 <h3>Host city</h3>
-                <form>
+                <form id="hostForm">
                     <div class="block-input__item">
                         <label for="hcity">City</label>
                         <input class="block-input__input block-input__input--bold" type="text" id="hcity" name="city">
@@ -36,7 +36,7 @@
             </div>
             <div class="block-input__items block-input__items--local">
                 <h3 style="color: rgb(121, 1, 146)">Your location</h3>
-                <form>
+                <form id="localForm">
                     <div class="block-input__item">
                         <label for="lcity">City</label>
                         <input class="block-input__input block-input__input--local block-input__input--bold" type="text" id="lcity" name="city">
@@ -57,11 +57,16 @@
             </div>
         </div>
         <div class="block block-submit">
-            <input class="block-submit__input" type="submit" value="Find out!">
+            <!-- <input class="block-submit__input" type="submit" value="Find out!" onclick="getInputValue();"> -->
+            <button class="block-submit__btn" type="submit" onclick="getInputValue();">Find out!</button>
+            <!-- <button class="block-submit__btn" type="submit">Reset</button> -->
         </div>
-        <div class="block block-result">
+        <div id="block-result" class="block block-result">
             <p>On November, 17 2022 at 4:00pm in Sydney (Australia) it will be November, 17 2022 7:00pm in Warsaw (Poland).</p>
+            <button class="block-result__btn" type="submit" onclick="resetBtn();">Reset</button>
         </div>
+        <script src="index.js">  
+        </script>
     </body>
 </html>
 
