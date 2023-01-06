@@ -36,6 +36,8 @@ const localCountry = document.getElementById("lcountry").value;
     xmlHttp.onload = function() {
         const userInput = xmlHttp.response;
         console.log("user input is "+userInput);
+        var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in Warsaw (Poland).`;
+
     };
     
     
