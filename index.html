@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <template id="result-template">
+            <p></p>
+        </template>
         <div class="block block-header">
             <h1>What time is the meeting?</h1>
             <p>Plan your participation in international online meetings? Check what time it will be in your area when the meeting takes place.</p>
@@ -62,7 +65,7 @@
             <!-- <button class="block-submit__btn" type="submit">Reset</button> -->
         </div>
         <div id="block-result" class="block block-result">
-            <p>On November, 17 2022 at 4:00pm in Sydney (Australia) it will be November, 17 2022 7:00pm in Warsaw (Poland).</p>
+            <div id="text-result"></div>
             <button class="block-result__btn" type="submit" onclick="resetBtn();">Reset</button>
         </div>
         <script src="index.js">  

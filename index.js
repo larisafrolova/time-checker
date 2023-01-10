@@ -24,6 +24,8 @@ const localCountry = document.getElementById("lcountry").value;
   }
 
   function httpGetAsync(url) {
+    const postResult = document.getElementById('text-result');
+    const textTemplate = document.getElementById('result-template');
     var xmlHttp = new XMLHttpRequest();
     // xmlHttp.onreadystatechange = function() {
     //     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
@@ -35,8 +37,11 @@ const localCountry = document.getElementById("lcountry").value;
 
     xmlHttp.onload = function() {
         const userInput = xmlHttp.response;
-        console.log("user input is "+userInput);
-        var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in Warsaw (Poland).`;
+        //console.log("user input is "+userInput);
+        var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
+        const textEl = document.importNode(textTemplate.content, true);
+        textEl.querySelector('p').textContent = resultText;
+        postResult.append(textEl);
 
     };
     
