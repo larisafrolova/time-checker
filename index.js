@@ -20,6 +20,8 @@ const localCountry = document.getElementById("lcountry").value;
   function resetBtn () {
     document.getElementById("hostForm").reset();
     document.getElementById("localForm").reset();
+    document.getElementById("result-template").innerHTML = "";
+    // document.getElementById('text-result').remove();
     document.getElementById("block-result").style.visibility = "hidden";
   }
 
