@@ -38,6 +38,7 @@ const localCountry = document.getElementById("lcountry").value;
     xmlHttp.responseType = 'json';
 
     xmlHttp.onload = function() {
+      if (xmlHttp.status >= 200 && xmlHttp.status < 300){
         const userInput = xmlHttp.response;
         console.log("user input is "+userInput);
         var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
@@ -46,9 +47,15 @@ const localCountry = document.getElementById("lcountry").value;
         //postResult.innerHTML = textEl.html;
         postResult.replaceChildren(textEl);
         //console.log('text after .TEXT');
-
+      }
+      else {
+        alert('something is wrong!!!!');
+      }
     };
-    
+
+    xmlHttp.onerror = function() {
+      reject (new Error('Failed to send request!!!'))
+    };
     
     xmlHttp.send(null);
 }
