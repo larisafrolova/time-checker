@@ -130,6 +130,12 @@ body {
     visibility: hidden;
 }
 
+.validation-text {
+    color: red;
+    font-size: 10px;
+    visibility:hidden;
+}
+
 @media (min-width: 480px){ 
     .block-input {
         width: 100%;
