@@ -30,17 +30,16 @@ body {
     font-weight: bold;
 }
 
-/* .block-form {
+.block-form {
     display: flex;
     flex-direction: column;
-    width: 300px;
-}  */
+} 
 
 /*the block with two forms*/
-.block-form__input {
+.block-form__user-input {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 280px;
 }
 
 /*forms*/
@@ -89,6 +88,7 @@ body {
 /*the header of the input and the validation text together*/
 .block-form__label {
     display: flex;
+    justify-content: space-between;
 }
 
 /*the label of the input*/
@@ -108,7 +108,7 @@ body {
 /*the input field of forms*/
 .block-form__input {
     border-radius: 5px;
-    width: 260px;
+    width: 240px;
     height: 30px;
     border: 0;
     color: rgb(31, 31, 31);
@@ -165,7 +165,7 @@ body {
     background-color: white;
     padding: 10px;
     box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
-    width: 300px;
+    width: 280px;
     text-align: center;
     /* visibility: hidden; */
 }
