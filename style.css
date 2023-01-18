@@ -102,7 +102,7 @@ body {
 .block-form__validation-text {
     color: red;
     font-size: 10px;
-    /* visibility:hidden; */
+    visibility:hidden;
 }
 
 /*the input field of forms*/
@@ -167,13 +167,13 @@ body {
     box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
     width: 280px;
     text-align: center;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 
 
 @media (min-width: 480px){ 
-    .block-form__user-input {
+    .block-form__user-input, .block-form {
         width: 100%;
     }
 
