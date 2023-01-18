@@ -10,11 +10,12 @@ body {
     align-items: center;
 }
 
+/* block element of the body*/
 .block { 
     margin:0 10px 50px 10px;
 }
 
-/*header */
+/*header of the website*/
 .block-header {
     /* display: flex;
     flex-direction: column; */
@@ -22,6 +23,7 @@ body {
     margin-top: 20px;
 }
 
+/*header of the header*/
 .block-header h1 {
     color:rgb(127, 0, 152);
     font-size: 40px;
@@ -29,17 +31,19 @@ body {
 }
 
 /* .block-form {
-    /* display: flex;
-    flex-direction: column; */
-    /* width: auto; */
-/* }  */
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}  */
 
+/*the block with two forms*/
 .block-form__input {
     display: flex;
     flex-direction: row;
 }
 
-.block-input__items {
+/*forms*/
+.block-form__form {
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(205, 205, 205);
@@ -51,11 +55,13 @@ body {
     
 }
 
-.block-input__items--host {
+/*the host form */
+.block-form__form--host {
     color: white;
 }
 
-.block-input__items--local {
+/*the local form*/
+.block-form__form--local {
     background-color: white;
 }
 
@@ -69,18 +75,37 @@ body {
     opacity: 1;
 }
 
-.block-input__items h3{
+/* the header of forms*/
+.block-form__header{
     text-align: center;
 }
 
+/*the header of the local form*/
+.block-form__header--local {
+    color: rgb(121, 1, 146);
+}
 
-.block-input__item label {
+/*the header of the input and the validation text together*/
+.block-form__label {
+    display: flex;
+}
+
+/*the label of the input*/
+.block-form__label label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
 }
 
-.block-input__input {
+/*validation text*/
+.block-form__validation-text {
+    color: red;
+    font-size: 10px;
+    /* visibility:hidden; */
+}
+
+/*the input field of forms*/
+.block-form__input {
     border-radius: 5px;
     width: 260px;
     height: 30px;
@@ -89,23 +114,25 @@ body {
     padding: 10px 15px;
 }
 
-.block-input__input--bold {
+/*the input field of the host form*/
+.block-form__input--bold {
     font-weight: bold;
 }
 
-.block-input__input:focus {
+.block-form__input:focus {
     outline-style:solid;
     outline-color: rgb(20, 121, 253);
     outline-width: 2px;
     border: 0;
 }
 
-
-.block-input__input--local {
+/*the input of the local input field*/
+.block-form__input--local {
     border: 1px solid rgb(158, 158, 158);
 }
 
-.block-input__item {
+/*the label and the input fields together */
+.block-form__item {
     margin-bottom: 10px;
 }
 
@@ -115,7 +142,7 @@ body {
     margin-top: 50px;
 }
 
-.block-submit__btn {
+.block-form__btn {
     border-radius: 5px;
     background-color: rgb(121, 1, 146);
     border: 1.5px solid rgb(121, 1, 146);
@@ -125,7 +152,7 @@ body {
     
 }
 
-.block-submit__btn:hover {
+.block-form__btn:hover {
     background-color: white;
     border: 1.5px solid rgb(121, 1, 146);
     color: rgb(121, 1, 146);
@@ -139,14 +166,10 @@ body {
     box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
     width: 300px;
     text-align: center;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
-.validation-text {
-    color: red;
-    font-size: 10px;
-    visibility:hidden;
-}
+
 
 @media (min-width: 480px){ 
     .block-input {

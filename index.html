@@ -16,61 +16,73 @@
             <p>Plan your participation in international online meetings? Check what time it will be in your area when the meeting takes place.</p>
         </div>
         <div class="block block-form">
-            <form name="myForm" id="form">
-                <div id="forms" class="block-form__input">
-                    <div class="block-input__items block-input__items--host">
-                        <h3>Host city</h3>
-                            <div class="block-input__item">
-                                <label for="hcity">City</label>
-                                <p class="validation-text">Enter your host city!</p>
-                                <input class="block-input__input block-input__input--bold" type="text" id="hcity" name="city" required>
+            <form class="block-form__form" name="myForm" id="form">
+                <div class="block-form__input">
+                    <div class="block-form__form block-form__form--host">
+                        <h3 class="block-form__header">Host city</h3>
+                        <div class="block-form__item">
+                                <div class="block-form__label">
+                                    <label for="hcity">City</label>
+                                    <p class="block-form__validation-text">Enter your host city!</p>
+                                </div>
+                                <input class="block-form__input block-form__input--bold" type="text" id="hcity" name="city" required>
                             </div>
-                            <div class="block-input__item">
+                        <div class="block-form__item">
+                            <div class="block-form__label">
                                 <label for="hcountry">Country</label>
-                                <p class="validation-text">Enter your host country!</p>
-                                <input class="block-input__input block-input__input--bold" type="text" id="hcountry" name="country" required>
+                                <p class="lock-form__validation-text">Enter your host country!</p>
                             </div>
-                            <div class="block-input__item">
+                            <input class="block-form__input block-form__input--bold" type="text" id="hcountry" name="country" required>
+                        </div>
+                        <div class="block-form__item">
+                            <div class="block-form__label">
                                 <label for="hdate">Date</label>
-                                <p class="validation-text">Enter your host date!</p>
-                            <input class="block-input__input" type="date" id="hdate" name="date" required>
+                                <p class="block-form__validation-text">Enter your host date!</p>
                             </div>
-                            <div class="block-input__item">
+                            <input class="block-form__input" type="date" id="hdate" name="date" required>
+                        </div>
+                        <div class="block-form__item">
+                            <div class="block-form__label">
                                 <label for="hdate">Time</label>
-                                <p class="validation-text">Enter your host time!</p>
-                            <input class="block-input__input" type="time" id="htime" name="time" required>
+                                <p class="block-form__validation-text">Enter your host time!</p>
                             </div>
+                            <input class="block-form__input" type="time" id="htime" name="time" required>
+                        </div>
                     </div>
-                    <div class="block-input__items block-input__items--local">
-                        <h3 style="color: rgb(121, 1, 146)">Your location</h3>
-                            <div class="block-input__item">
-                                <label for="lcity">City</label>
-                                <p class="validation-text">Enter your local city!</p>
-                                <input class="block-input__input block-input__input--local block-input__input--bold" type="text" id="lcity" name="city" required>
+                    <div class="block-form__form block-form__form--local">
+                        <h3 class="block-form__header block-form__header--local">Your location</h3>
+                            <div class="block-form__item">
+                                <div class="block-form__label">
+                                    <label for="lcity">City</label>
+                                    <p class="block-form__validation-text">Enter your local city!</p>
+                                </div>
+                                <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcity" name="city" required>
                             </div>
-                            <div class="block-input__item">
-                                <label for="lcountry">Country</label>
-                                <p class="validation-text">Enter your local country!</p>
-                                <input class="block-input__input block-input__input--local block-input__input--bold" type="text" id="lcountry" name="country" required>
+                            <div class="block-form__item">
+                                <div class="block-form__label">
+                                    <label for="lcountry">Country</label>
+                                    <p class="block-form__validation-text">Enter your local country!</p>
+                                </div>
+                                <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcountry" name="country" required>
                             </div>
-                            <div class="block-input__item block-input__item--local" style="visibility: hidden">
+                            <!-- <div class="block-form__item block-input__item--local" style="visibility: hidden">
                                 <label for="hdate">Date</label>
                             <input class="block-input__input block-input__input--local" type="date" id="hdate" name="date" disabled>
                             </div>
-                            <div class="block-input__item block-input__item--local" style="visibility: hidden">
+                            <div class="block-form__item block-input__item--local" style="visibility: hidden">
                                 <label for="hdate">Time</label>
                             <input class="block-input__input block-input__input--local" type="time" id="htime" name="time" disabled>
-                            </div>
+                            </div> -->
                     </div>
                 </div>
-                <div id="submit-btn" class="block block-form__submit">
+                <div class="block-form__submit">
                     <!-- <input class="block-submit__input" type="submit" value="Find out!" onclick="getInputValue();"> -->
-                    <button class="block-submit__btn" type="submit" onclick="getInputValue();">Find out!</button>
+                    <button class="block-form__btn" type="submit" onclick="getInputValue();">Find out!</button>
                     <!-- <button class="block-submit__btn" type="submit">Reset</button> -->
                 </div>
             </form>
         </div>
-        <div id="block-result" class="block block-result">
+        <div class="block block-result" id="block-result">
             <div id="text-result"></div>
             <button class="block-result__btn" type="submit" onclick="resetBtn();">Reset</button>
         </div>
