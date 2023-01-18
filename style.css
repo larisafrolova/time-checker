@@ -33,13 +33,14 @@ body {
 /* .block-form {
     display: flex;
     flex-direction: column;
-    width: auto;
+    width: 300px;
 }  */
 
 /*the block with two forms*/
 .block-form__input {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 300px;
 }
 
 /*forms*/
