@@ -11,14 +11,15 @@ body {
 }
 
 .block { 
-    margin:0 10px 30px 10px;
+    margin:0 10px 50px 10px;
 }
 
 /*header */
 .block-header {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     text-align: center;
+    margin-top: 20px;
 }
 
 .block-header h1 {
@@ -27,15 +28,20 @@ body {
     font-weight: bold;
 }
 
-.block-input {
+/* .block-form {
+    /* display: flex;
+    flex-direction: column; */
+    /* width: auto; */
+/* }  */
+
+.block-form__input {
     display: flex;
-    flex-direction: column;
-    width: 300px;
+    flex-direction: row;
 }
 
-
-
 .block-input__items {
+    display: flex;
+    flex-direction: column;
     border: 1px solid rgb(205, 205, 205);
     border-radius: 5px;
     background-color: rgb(121, 1, 146);
@@ -101,6 +107,12 @@ body {
 
 .block-input__item {
     margin-bottom: 10px;
+}
+
+.block-form__submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .block-submit__btn {
