@@ -15,7 +15,8 @@ function getInputValue() {
 
     document.getElementById("block-result").style.visibility = "visible";
 
-    var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&&base_location=${hostCity},${hostCountry}&base_datetime=2020-05-01 07:00:00&target_location=${localCity}, ${localCountry}`
+    var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&base_location=${hostCity}, ${hostCountry}&base_datetime=${hostDate} ${hostTime}&target_location=${localCity}, ${localCountry}`
+
     
     httpGetAsync(url);
   }
