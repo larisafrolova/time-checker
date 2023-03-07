@@ -1,20 +1,21 @@
 
 function getInputValue() {
+  console.log("i am in the getInputValue function");
 
-    const hostCity = document.getElementById("hcity").value;
-const hostCountry = document.getElementById("hcountry").value;
-const hostDate = document.getElementById("hdate").value;
-const hostTime = document.getElementById("htime").value;
+  const hostCity = document.getElementById("hcity").value;
+  const hostCountry = document.getElementById("hcountry").value;
+  const hostDate = document.getElementById("hdate").value;
+  const hostTime = document.getElementById("htime").value;
 
-const localCity = document.getElementById("lcity").value;
-const localCountry = document.getElementById("lcountry").value;
+  const localCity = document.getElementById("lcity").value;
+  const localCountry = document.getElementById("lcountry").value;
 
 // validate(hostCity, hostCountry, hostDate, hostTime);
-validateCity (hostCity);
+//validateCity (hostCity);
 
     document.getElementById("block-result").style.visibility = "visible";
 
-    var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&&base_location=${hostCity}, ${hostCountry}&base_datetime=2022-12-08 07:00:00&target_location=${localCity}, ${localCountry}`
+    var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&&base_location=${hostCity},${hostCountry}&base_datetime=2020-05-01 07:00:00&target_location=${localCity}, ${localCountry}`
     
     httpGetAsync(url);
   }
@@ -29,18 +30,24 @@ validateCity (hostCity);
   }
 
   function httpGetAsync(url) {
+    console.log("i am in the httpGetAsync function");
+
     const postResult = document.getElementById('text-result');
     const textTemplate = document.getElementById('result-template');
     var xmlHttp = new XMLHttpRequest();
+    console.log('after new request');
     // xmlHttp.onreadystatechange = function() {
     //     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
     //     callback(xmlHttp.responseText);
     // }
     xmlHttp.open("GET", url, true); // true for asynchronous
 
+    console.log("after open new request");
+
     xmlHttp.responseType = 'json';
 
     xmlHttp.onload = function() {
+      console.log("i am in the onload function");
       if (xmlHttp.status >= 200 && xmlHttp.status < 300){
         const userInput = xmlHttp.response;
         console.log("user input is "+userInput);
@@ -61,6 +68,7 @@ validateCity (hostCity);
     };
     
     xmlHttp.send(null);
+    console.log("afeter send request");
 }
 
 // function validate() {
@@ -106,7 +114,7 @@ validateCity (hostCity);
 // }
 
 
-function validateCity (city) {
+/*function validateCity (city) {
   //var formsCollection = document.forms;
   //let validText = document.getElementsByClassName("validation-text");
  // for(var i=0;i<formsCollection.length;i++) {
@@ -146,6 +154,6 @@ function validateDate (date) {
 
 function validateTime (time) {
   alert ("it is working! validate with no arguments");
-}
+}*/
 
 

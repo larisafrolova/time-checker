@@ -12,7 +12,7 @@ body {
 
 /* block element of the body*/
 .block { 
-    margin:0 10px 50px 10px;
+    margin:0 20px 50px 20px;
 }
 
 /*header of the website*/
@@ -173,6 +173,7 @@ body {
 
 
 @media (min-width: 480px){ 
+
     .block-form__user-input, .block-form {
         width: 100%;
     }
