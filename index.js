@@ -23,9 +23,12 @@ function getInputValue() {
 
 
   function resetBtn () {
-    document.getElementById("hostForm").reset();
-    document.getElementById("localForm").reset();
-    document.getElementById("result-template").innerHTML = "";
+    document.getElementById("form").reset();
+
+    // document.getElementById("localForm").reset();
+    // document.getElementById("result-template").innerHTML = "";
+    document.querySelector("#text-result").innerHTML = "";
+    // document.getElementById("text-result").value = '';
     // document.getElementById('text-result').remove();
     document.getElementById("block-result").style.visibility = "hidden";
   }
@@ -51,10 +54,13 @@ function getInputValue() {
       console.log("i am in the onload function");
       if (xmlHttp.status >= 200 && xmlHttp.status < 300){
         const userInput = xmlHttp.response;
-        console.log("user input is "+userInput);
+        // console.log("user input is "+userInput);
         var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
+        // console.log("resultText is "+resultText);
         const textEl = document.importNode(textTemplate.content, true);
+        // console.log("textEl is "+textEl);
         textEl.querySelector('p').textContent = resultText;
+        // console.log("textEl.querySelector('p').textContent "+textEl.querySelector('p').textContent);
         //postResult.innerHTML = textEl.html;
         postResult.replaceChildren(textEl);
         //console.log('text after .TEXT');
