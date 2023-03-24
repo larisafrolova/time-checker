@@ -144,7 +144,7 @@ body {
     visibility: visible;
 }
 
-.block-form__btn {
+.block-form__btn{
     border-radius: 5px;
     background-color: rgb(121, 1, 146);
     border: 1.5px solid rgb(121, 1, 146);
@@ -170,6 +170,15 @@ body {
     width: 280px;
     text-align: center;
     visibility: hidden;
+}
+
+.block-result__btn {
+    border-radius: 5px;
+    background-color: rgb(121, 1, 146);
+    border: 1.5px solid rgb(121, 1, 146);
+    padding: 5px 10px;
+    color: white;
+    font-size: 15px;
 }
 
 .loader-container {
