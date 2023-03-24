@@ -166,6 +166,7 @@ body {
     border-radius: 5px;
     background-color: white;
     padding: 10px;
+    margin-top: -120px;
     box-shadow: rgba(84, 84, 84, 0.16) 0px 3px 6px, rgba(106, 106, 106, 0.23) 0px 3px 6px;
     width: 280px;
     text-align: center;
@@ -181,16 +182,13 @@ body {
     font-size: 15px;
 }
 
+/* loading-spinner */
 .loader-container {
     display: none;
-    top: 700px;
-    left: 48%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    /* background-color: rgb(22, 252, 61); */
+    margin-top: -100px;
 }
 
-
-/* loading-spinner */
 .spinner {
     border: 2px solid #ccc;
     width: 60px;
@@ -251,6 +249,7 @@ body {
     .block-result {
         width: 600px;
     }
+
 }
 
 @media (min-width: 780px){
