@@ -1,166 +1,77 @@
 
-function getInputValue() {
-  console.log("i am in the getInputValue function");
+const loaderContainer = document.querySelector('.loader-container');
 
-  const hostCity = document.getElementById("hcity").value;
-  const hostCountry = document.getElementById("hcountry").value;
-  const hostDate = document.getElementById("hdate").value;
-  const hostTime = document.getElementById("htime").value;
+const displayLoading = () => {
+    loaderContainer.style.display = 'block';
+  };
 
-  const localCity = document.getElementById("lcity").value;
-  const localCountry = document.getElementById("lcountry").value;
+const hideLoading = () => {
+    loaderContainer.style.display = 'none';
+  };
 
-// validate(hostCity, hostCountry, hostDate, hostTime);
-//validateCity (hostCity);
+const getFindOutBtn = document.querySelector('.block-form__btn');
 
-    document.getElementById("block-result").style.visibility = "visible";
+function httpGetAsync() {
+  const hostCity = document.querySelector("#hcity").value;
+  const hostCountry = document.querySelector("#hcountry").value;
+  const hostDate = document.querySelector("#hdate").value;
+  const hostTime = document.querySelector("#htime").value;
 
-    var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&base_location=${hostCity}, ${hostCountry}&base_datetime=${hostDate} ${hostTime}&target_location=${localCity}, ${localCountry}`
+  const localCity = document.querySelector("#lcity").value;
+  const localCountry = document.querySelector("#lcountry").value;
+  var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&base_location=${hostCity}, ${hostCountry}&base_datetime=${hostDate} ${hostTime}&target_location=${localCity}, ${localCountry}`
 
-    
-    httpGetAsync(url);
-  }
+  const postResult = document.querySelector('#text-result');
+  const textTemplate = document.querySelector('#result-template');
+  var xmlHttp = new XMLHttpRequest();
+  // xmlHttp.onreadystatechange = function() {
+  //     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+  //     callback(xmlHttp.responseText);
+  // }
+  xmlHttp.open("GET", url, true); // true for asynchronous
 
+  xmlHttp.responseType = 'json';
 
-  function resetBtn () {
-    document.getElementById("form").reset();
-
-    // document.getElementById("localForm").reset();
-    // document.getElementById("result-template").innerHTML = "";
-    document.querySelector("#text-result").innerHTML = "";
-    // document.getElementById("text-result").value = '';
-    // document.getElementById('text-result').remove();
-    document.getElementById("block-result").style.visibility = "hidden";
-  }
-
-  function httpGetAsync(url) {
-    console.log("i am in the httpGetAsync function");
-
-    const postResult = document.getElementById('text-result');
-    const textTemplate = document.getElementById('result-template');
-    var xmlHttp = new XMLHttpRequest();
-    console.log('after new request');
-    // xmlHttp.onreadystatechange = function() {
-    //     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
-    //     callback(xmlHttp.responseText);
-    // }
-    xmlHttp.open("GET", url, true); // true for asynchronous
-
-    console.log("after open new request");
-
-    xmlHttp.responseType = 'json';
-
-    xmlHttp.onload = function() {
-      console.log("i am in the onload function");
-      if (xmlHttp.status >= 200 && xmlHttp.status < 300){
-        const userInput = xmlHttp.response;
-        // console.log("user input is "+userInput);
-        var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
-        // console.log("resultText is "+resultText);
-        const textEl = document.importNode(textTemplate.content, true);
-        // console.log("textEl is "+textEl);
-        textEl.querySelector('p').textContent = resultText;
-        // console.log("textEl.querySelector('p').textContent "+textEl.querySelector('p').textContent);
-        //postResult.innerHTML = textEl.html;
-        postResult.replaceChildren(textEl);
-        //console.log('text after .TEXT');
-      }
-      else {
-        alert('400 Bad request!!!!');
-      }
-    };
-
-    xmlHttp.onerror = function() {
-      reject (new Error('Failed to send request!!!'))
-    };
-    
-    xmlHttp.send(null);
-    console.log("afeter send request");
-}
-
-// function validate() {
-//   var formsCollection = document.forms;
-//   const validText = document.getElementsByClassName("validation-text");
-//   for(var i=0;i<formsCollection.length;i++) {
-//     console.log('validText is '+validText);
-//     console.log('I am in the for loop');
-//     let city = formsCollection[i]["city"].value;
-//     console.log('city is '+city);
-//     if(city === "") {
-//       console.log('i am in in the 1 if statement for loop');
-//       validText.style['visibility'] = 'visible';
-//       // formsCollection[i]["validation-text"].style.visibility = "visible";
-//     // alert( "Please provide your city!" );
-//     formsCollection[i]["city"].focus();
-//     // validText.style.visibility = 'hidden';
-//     return false;
-//     }
-//     validText.style['visibility'] = 'hidden';
-//  let country = formsCollection[i]["country"].value;
-//  console.log('country is '+country);
-//  if( country === "") {
-//   console.log('i am in in the 2 if statement for loop');
-//     alert( "Please provide your country!");
-//     formsCollection[i]["country"].focus();
-//     return false;
-//  }
-//   }
-  
-// //  if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
-// //     document.myForm.Zip.value.length != 5 ) {
-    
-// //     alert( "Please provide a zip in the format #####." );
-// //     document.myForm.Zip.focus() ;
-// //     return false;
-// //  }
-// //  if( document.myForm.Country.value == "-1" ) {
-// //     alert( "Please provide your country!" );
-// //     return false;
-// //  }
-//  return( true );
-// }
-
-
-/*function validateCity (city) {
-  //var formsCollection = document.forms;
-  //let validText = document.getElementsByClassName("validation-text");
- // for(var i=0;i<formsCollection.length;i++) {
-    city = document.forms['myForm'].city.value;
-    //country = formsCollection[i]["country"].value;
-    if(city === "" || city === null) {
-      alert("returning false to the validate city!")
-      return false;
-      //alert ('validate is working good!');
-      // for (let item of validText) {
-      //   console.log("validText is "+validText);
-      //   console.log('item is '+item);
-      //   item.style.visibility = 'visible';
-      //   alert( "Please provide your user data!" );
-      //   formsCollection[i]["city"].focus();
-      //   item.style.visibility = 'hidden';
-      //   return false;
-      // }
-      //validText.style.visibility = 'hidden';
+  xmlHttp.onload = function() {
+    if (xmlHttp.status >= 200 && xmlHttp.status < 300){
+      hideLoading();
+      document.getElementById("block-result").style.visibility = "visible";
+      const userInput = xmlHttp.response;
+      var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
+      const textEl = document.importNode(textTemplate.content, true);
+      textEl.querySelector('p').textContent = resultText;
+      //postResult.innerHTML = textEl.html;
+      postResult.replaceChildren(textEl);
     }
-    // }
-  }
+    else {
+      alert('400 Bad request!!!!');
+    }
+  };
 
-
-function validateCountry (country) {
-  country = document.forms['myForm'].country.value;
-  if(country === "" || country === null) {
-    alert("returning false to the validate country!")
-      return false;
-  }
-  //alert ("it is working! validate with no arguments");
+  xmlHttp.onerror = function() {
+    reject (new Error('Failed to send request!!!'))
+  };
+  
+  xmlHttp.send(null);
 }
 
-function validateDate (date) {
-  alert ("it is working! validate with no arguments");
+
+getFindOutBtn.addEventListener('click', () => {
+  document.querySelector('.block-form__submit').style.visibility = 'hidden';
+  displayLoading();
+  httpGetAsync();
+  document.getElementById("form").reset();
+});
+
+
+function resetBtn () {
+  document.querySelector('.block-form__submit').style.visibility = 'visible';
+  // document.getElementById("form").reset();
+
+  // document.getElementById("localForm").reset();
+  // document.getElementById("result-template").innerHTML = "";
+  document.querySelector("#text-result").innerHTML = "";
+  // document.getElementById("text-result").value = '';
+  // document.getElementById('text-result').remove();
+  document.getElementById("block-result").style.visibility = "hidden";
 }
-
-function validateTime (time) {
-  alert ("it is working! validate with no arguments");
-}*/
-
-
