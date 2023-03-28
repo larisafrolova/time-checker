@@ -12,6 +12,7 @@ const hideLoading = () => {
 const getFindOutBtn = document.querySelector('.block-form__btn');
 
 function httpGetAsync() {
+  console.log("I am in the httpGetFiunction");
   const hostCity = document.querySelector("#hcity").value;
   const hostCountry = document.querySelector("#hcountry").value;
   const hostDate = document.querySelector("#hdate").value;
@@ -37,9 +38,15 @@ function httpGetAsync() {
       hideLoading();
       document.getElementById("block-result").style.visibility = "visible";
       const userInput = xmlHttp.response;
+      // console.log("user input is "+userInput);
+      // console.log("userInput.base_location.datetime is "+userInput.base_location.datetime);
+      // console.log(typeof userInput.base_location.datetime);
       var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
+      const baseDateTime = convertDate (userInput.base_location.datetime);
+      const targetDateTime = convertDate(userInput.target_location.datetime);
+      var testText = `When the time was ${baseDateTime[1]} on ${baseDateTime[0]} in ${userInput.base_location.requested_location}, it was ${targetDateTime[1]} ${targetDateTime[0]} in ${userInput.target_location.requested_location}.`;
       const textEl = document.importNode(textTemplate.content, true);
-      textEl.querySelector('p').textContent = resultText;
+      textEl.querySelector('p').textContent = testText;
       //postResult.innerHTML = textEl.html;
       postResult.replaceChildren(textEl);
     }
@@ -55,6 +62,23 @@ function httpGetAsync() {
   xmlHttp.send(null);
 }
 
+// function splitTimeAndDate (input) {
+//   const transformedTimeDate = input.split(' ');
+//   return transformedTimeDate;
+// }
+
+function convertDate (input) {
+  const newDateTimeArray = [];
+  const transformedTimeDate = input.split(' ');
+  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  newDateTimeArray.push(newDate);
+  const newTime = transformedTimeDate[1];
+  newDateTimeArray.push(newTime);
+  // console.log("Date after converting is "+newDate);
+  // console.log("Date parse is "+Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy"));
+  return newDateTimeArray;
+}
+
 
 getFindOutBtn.addEventListener('click', () => {
   document.querySelector('.block-form__submit').style.visibility = 'hidden';
@@ -65,6 +89,7 @@ getFindOutBtn.addEventListener('click', () => {
 
 
 function resetBtn () {
+  console.log("reset btn");
   document.querySelector('.block-form__submit').style.visibility = 'visible';
   // document.getElementById("form").reset();
 
