@@ -155,13 +155,17 @@ body {
     
 }
 
-.block-form__btn:hover {
+.block-form__btn:hover, .block-result__btn:hover {
     background-color: white;
     border: 1.5px solid rgb(121, 1, 146);
     color: rgb(121, 1, 146);
 }
 
 .block-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgb(205, 205, 205);
     border-radius: 5px;
     background-color: white;
@@ -177,9 +181,48 @@ body {
     border-radius: 5px;
     background-color: rgb(121, 1, 146);
     border: 1.5px solid rgb(121, 1, 146);
-    padding: 5px 10px;
+    padding: 10px 15px;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#text-result {
+    width: 100%;
+    margin: 30px 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+
+
+/*table style */
+/* table, td, th {
+    border: 1px solid;
+  } */
+
+/* tbody {
+    display: flex;
+    flex-direction: column;
+}  */
+
+tr:first-of-type {
+    color:rgb(121, 1, 146);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+td {
+    font-weight:lighter; 
+    color:rgb(39, 39, 39);
+    width: 400px;
+    padding-top: 15px;
+}
+
+th {
+    width: 400px;
 }
 
 /* loading-spinner */

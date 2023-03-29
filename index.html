@@ -9,8 +9,20 @@
     </head>
     <body>
         <template id="result-template">
-            <p></p>
-            <p></p>
+            <table>
+                <tr>
+                    <th id="hostPlace"></th>
+                    <th id="localPlace"></th>
+                </tr>
+                <tr>
+                    <td id="hostTime"></td>
+                    <td id="localTime"></td>
+                </tr>
+                <tr>
+                    <td id="hostDate"></td>
+                    <td id="localDate"></td>
+                </tr>
+            </table>
         </template>
         <div class="block block-header">
             <h1>What time is the meeting?</h1>
@@ -25,28 +37,28 @@
                                 <label for="hcity">City</label>
                                 <p class="block-form__validation-text">Enter your host city!</p>
                             </div>
-                            <input class="block-form__input block-form__input--bold" type="text" id="hcity" name="city" value="Rome" required>
+                            <input class="block-form__input block-form__input--bold" type="text" id="hcity" name="city" value="" required>
                         </div>
                     <div class="block-form__item">
                         <div class="block-form__label">
                             <label for="hcountry">Country</label>
                             <p class="block-form__validation-text">Enter your host country!</p>
                         </div>
-                        <input class="block-form__input block-form__input--bold" type="text" id="hcountry" name="country" value="Italy" required>
+                        <input class="block-form__input block-form__input--bold" type="text" id="hcountry" name="country" value="" required>
                     </div>
                     <div class="block-form__item">
                         <div class="block-form__label">
                             <label for="hdate">Date</label>
                             <p class="block-form__validation-text">Enter your host date!</p>
                         </div>
-                        <input class="block-form__input" type="date" id="hdate" name="date" required value="2020-05-01">
+                        <input class="block-form__input" type="date" id="hdate" name="date" required value="">
                     </div>
                     <div class="block-form__item">
                         <div class="block-form__label">
                             <label for="hdate">Time</label>
                             <p class="block-form__validation-text">Enter your host time!</p>
                         </div>
-                        <input class="block-form__input" type="time" id="htime" name="time" required value="07:00:00">
+                        <input class="block-form__input" type="time" id="htime" name="time" required value="">
                     </div>
                 </div>
                 <div class="block-form__form block-form__form--local">
@@ -56,14 +68,14 @@
                                 <label for="lcity">City</label>
                                 <p class="block-form__validation-text">Enter your local city!</p>
                             </div>
-                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcity" name="city" value="Tomsk" required>
+                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcity" name="city" value="" required>
                         </div>
                         <div class="block-form__item">
                             <div class="block-form__label">
                                 <label for="lcountry">Country</label>
                                 <p class="block-form__validation-text">Enter your local country!</p>
                             </div>
-                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcountry" name="country" value="Russia" required>
+                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcountry" name="country" value="" required>
                         </div>
                         <!-- <div class="block-form__item block-input__item--local" style="visibility: hidden">
                             <label for="hdate">Date</label>
@@ -88,7 +100,7 @@
             </div>
         </div>
         
-        <div class="block block-result" id="block-result">
+        <div class="block block-result">
             <div id="text-result"></div>
             <button class="block-result__btn" type="submit" onclick="resetBtn();">Reset</button>
         </div>

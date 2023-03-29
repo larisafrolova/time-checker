@@ -12,7 +12,7 @@ const hideLoading = () => {
 const getFindOutBtn = document.querySelector('.block-form__btn');
 
 function httpGetAsync() {
-  console.log("I am in the httpGetFiunction");
+  // console.log("I am in the httpGetFiunction");
   const hostCity = document.querySelector("#hcity").value;
   const hostCountry = document.querySelector("#hcountry").value;
   const hostDate = document.querySelector("#hdate").value;
@@ -36,18 +36,28 @@ function httpGetAsync() {
   xmlHttp.onload = function() {
     if (xmlHttp.status >= 200 && xmlHttp.status < 300){
       hideLoading();
-      document.getElementById("block-result").style.visibility = "visible";
+      document.querySelector(".block-result").style.visibility = "visible";
       const userInput = xmlHttp.response;
       // console.log("user input is "+userInput);
       // console.log("userInput.base_location.datetime is "+userInput.base_location.datetime);
       // console.log(typeof userInput.base_location.datetime);
-      var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
+      // var resultText = `On ${userInput.base_location.datetime} in ${userInput.base_location.requested_location} it will be ${userInput.target_location.datetime} in ${userInput.target_location.requested_location}.`;
       const baseDateTime = convertDate (userInput.base_location.datetime);
       const targetDateTime = convertDate(userInput.target_location.datetime);
-      var testText = `When the time was ${baseDateTime[1]} on ${baseDateTime[0]} in ${userInput.base_location.requested_location}, it was ${targetDateTime[1]} ${targetDateTime[0]} in ${userInput.target_location.requested_location}.`;
+      // var testText = `When the time was ${baseDateTime[1]} on ${baseDateTime[0]} in ${userInput.base_location.requested_location}, it was ${targetDateTime[1]} ${targetDateTime[0]} in ${userInput.target_location.requested_location}.`;
+
       const textEl = document.importNode(textTemplate.content, true);
-      textEl.querySelector('p').textContent = testText;
-      //postResult.innerHTML = textEl.html;
+
+      textEl.querySelector('#hostPlace').textContent = userInput.base_location.requested_location;
+      textEl.querySelector('#localPlace').textContent = userInput.target_location.requested_location;
+      textEl.querySelector('#hostTime').textContent = 
+      baseDateTime[1];
+      textEl.querySelector('#localTime').textContent = 
+      targetDateTime[1];
+      textEl.querySelector('#hostDate').textContent = 
+      baseDateTime[0];
+      textEl.querySelector('#localDate').textContent = 
+      targetDateTime[0];
       postResult.replaceChildren(textEl);
     }
     else {
@@ -84,19 +94,19 @@ getFindOutBtn.addEventListener('click', () => {
   document.querySelector('.block-form__submit').style.visibility = 'hidden';
   displayLoading();
   httpGetAsync();
-  document.getElementById("form").reset();
+  // document.getElementById("form").reset();
 });
 
 
 function resetBtn () {
-  console.log("reset btn");
+  // console.log("reset btn");
   document.querySelector('.block-form__submit').style.visibility = 'visible';
-  // document.getElementById("form").reset();
+  document.getElementById("form").reset();
 
   // document.getElementById("localForm").reset();
   // document.getElementById("result-template").innerHTML = "";
   document.querySelector("#text-result").innerHTML = "";
   // document.getElementById("text-result").value = '';
   // document.getElementById('text-result').remove();
-  document.getElementById("block-result").style.visibility = "hidden";
+  document.querySelector(".block-result").style.visibility = "hidden";
 }
