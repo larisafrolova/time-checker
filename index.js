@@ -11,6 +11,8 @@ const hideLoading = () => {
 
 const getFindOutBtn = document.querySelector('.block-form__btn');
 
+const formBtn = document.querySelector('form');
+
 function httpGetAsync() {
   // console.log("I am in the httpGetFiunction");
   const hostCity = document.querySelector("#hcity").value;
@@ -89,13 +91,20 @@ function convertDate (input) {
   return newDateTimeArray;
 }
 
-
-getFindOutBtn.addEventListener('submit', 'click', () => {
+formBtn.addEventListener('submit', event => {
+  event.preventDefault();
   document.querySelector('.block-form__submit').style.visibility = 'hidden';
   displayLoading();
   httpGetAsync();
-  // document.getElementById("form").reset();
 });
+
+
+// getFindOutBtn.addEventListener('click', () => {
+//   document.querySelector('.block-form__submit').style.visibility = 'hidden';
+//   displayLoading();
+//   httpGetAsync();
+//   // document.getElementById("form").reset();
+// });
 
 
 function resetBtn () {
