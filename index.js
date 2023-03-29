@@ -90,7 +90,7 @@ function convertDate (input) {
 }
 
 
-getFindOutBtn.addEventListener('click', () => {
+getFindOutBtn.addEventListener('submit', 'click', () => {
   document.querySelector('.block-form__submit').style.visibility = 'hidden';
   displayLoading();
   httpGetAsync();
