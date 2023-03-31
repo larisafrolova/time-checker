@@ -25,6 +25,7 @@ function httpGetAsync() {
   var url = `https://timezone.abstractapi.com/v1/convert_time/?api_key=f0b51a94ee7e42b7ab5db8d1bade8045&base_location=${hostCity}, ${hostCountry}&base_datetime=${hostDate} ${hostTime}&target_location=${localCity}, ${localCountry}`
 
   const postResult = document.querySelector('#text-result');
+  console.log("text result inner html is "+postResult);
   const textTemplate = document.querySelector('#result-template');
   var xmlHttp = new XMLHttpRequest();
   // xmlHttp.onreadystatechange = function() {
@@ -108,13 +109,14 @@ formBtn.addEventListener('submit', event => {
 
 
 function resetBtn () {
-  // console.log("reset btn");
+  console.log("reset btn");
   document.querySelector('.block-form__submit').style.visibility = 'visible';
   document.getElementById("form").reset();
 
   // document.getElementById("localForm").reset();
   // document.getElementById("result-template").innerHTML = "";
   document.querySelector("#text-result").innerHTML = "";
+  console.log("text result inner html in resetBtn is "+document.querySelector("#text-result").innerHTML);
   // document.getElementById("text-result").value = '';
   // document.getElementById('text-result').remove();
   document.querySelector(".block-result").style.visibility = "hidden";
