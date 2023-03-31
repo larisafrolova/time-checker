@@ -228,7 +228,9 @@ th {
 
 #error-result {
     display: none;
-    background-color: red;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
     /* border: 1px solid rgb(205, 205, 205);
     border-radius: 5px;
     background-color: white;
