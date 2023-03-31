@@ -26,7 +26,7 @@ const displayError = (message) => {
   // errorResult.style.display = 'block';
   // resetButton.style.display = 'block';
   const errorEl = document.importNode(errorTemplate.content, true);
-  errorEl.querySelector('p').textContent = message;
+  errorEl.querySelector('p:first-of-type').textContent = message;
   errorResult.replaceChildren(errorEl);
 };
 
@@ -89,7 +89,8 @@ function httpGetAsync() {
       reject (new Error ('Something went wrong!!!'));
       // console.log("error is "+JSON.stringify(xmlHttp.response.error.message));
       hideLoading();
-      displayError(JSON.stringify(xmlHttp.response.error.message));
+      var errorMsg = JSON.stringify(xmlHttp.response.error.message);
+      displayError(errorMsg.slice(1,(errorMsg.length - 1)));
     }
   };
 
@@ -144,13 +145,13 @@ function resetBtn () {
   // document.getElementById("localForm").reset();
   // document.getElementById("result-template").innerHTML = "";
   // document.querySelector("#text-result").innerHTML = "";
-  if (document.querySelector("result-template").innerHTML === ""){
+  if (document.querySelector("#text-result").innerHTML === ""){
     console.log("i am in the table innerHTML");
     document.querySelector('#error-result').innerHTML = "";
   }
   else {
     console.log("i am in the error inner html");
-    document.querySelector("result-template").innerHTML = "";
+    document.querySelector("#text-result").innerHTML = "";
   }
   // document.querySelector("table").innerHTML = "";
   // document.querySelector('#error-template').innerHTML = "";
