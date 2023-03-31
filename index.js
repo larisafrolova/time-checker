@@ -1,4 +1,3 @@
-
 const loaderContainer = document.querySelector('.loader-container');
 
 const displayLoading = () => {
@@ -13,6 +12,25 @@ const getFindOutBtn = document.querySelector('.block-form__btn');
 
 const formBtn = document.querySelector('form');
 
+const resetButton = document.querySelector('.block-result__btn');
+
+// const error  = document.querySelector("#error-result");
+
+
+const displayError = (message) => {
+  const errorResult = document.querySelector('#error-result');
+  const errorTemplate = document.querySelector('#error-template');
+  document.querySelector(".block-result").style.visibility = "visible";
+  document.querySelector('#text-result').style.display = 'none';
+  document.querySelector('#error-result').style.display = 'block';
+  // errorResult.style.display = 'block';
+  // resetButton.style.display = 'block';
+  const errorEl = document.importNode(errorTemplate.content, true);
+  errorEl.querySelector('p').textContent = message;
+  errorResult.replaceChildren(errorEl);
+};
+
+
 function httpGetAsync() {
   // console.log("I am in the httpGetFiunction");
   const hostCity = document.querySelector("#hcity").value;
@@ -26,7 +44,8 @@ function httpGetAsync() {
 
   const postResult = document.querySelector('#text-result');
   const textTemplate = document.querySelector('#result-template');
-  var xmlHttp = new XMLHttpRequest();
+  const promise = new Promise((resolve, reject) => {
+    var xmlHttp = new XMLHttpRequest();
   // xmlHttp.onreadystatechange = function() {
   //     if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
   //     callback(xmlHttp.responseText);
@@ -37,8 +56,11 @@ function httpGetAsync() {
 
   xmlHttp.onload = function() {
     if (xmlHttp.status >= 200 && xmlHttp.status < 300){
+      resolve (xmlHttp.response);
+      // console.log("xmlHttp.response is "+JSON.stringify(xmlHttp.response));
       hideLoading();
       document.querySelector(".block-result").style.visibility = "visible";
+      document.querySelector('#text-result').style.display = 'block';
       const userInput = xmlHttp.response;
       // console.log("user input is "+userInput);
       // console.log("userInput.base_location.datetime is "+userInput.base_location.datetime);
@@ -63,7 +85,10 @@ function httpGetAsync() {
       postResult.replaceChildren(textEl);
     }
     else {
-      alert('400 Bad request!!!!');
+      reject (new Error ('Something went wrong!!!'));
+      // console.log("error is "+JSON.stringify(xmlHttp.response.error.message));
+      hideLoading();
+      displayError(JSON.stringify(xmlHttp.response.error.message));
     }
   };
 
@@ -72,6 +97,8 @@ function httpGetAsync() {
   };
   
   xmlHttp.send(null);
+  });
+  return promise;
 }
 
 // function splitTimeAndDate (input) {
@@ -108,13 +135,23 @@ formBtn.addEventListener('submit', event => {
 
 
 function resetBtn () {
-  // console.log("reset btn");
+  console.log("I am in the reset Btn");
   document.querySelector('.block-form__submit').style.visibility = 'visible';
   document.getElementById("form").reset();
 
   // document.getElementById("localForm").reset();
   // document.getElementById("result-template").innerHTML = "";
-  document.querySelector("#text-result").innerHTML = "";
+  // document.querySelector("#text-result").innerHTML = "";
+  if (document.querySelector("result-template").innerHTML === ""){
+    console.log("i am in the table innerHTML");
+    document.querySelector('#error-result').innerHTML = "";
+  }
+  else {
+    console.log("i am in the error inner html");
+    document.querySelector("result-template").innerHTML = "";
+  }
+  // document.querySelector("table").innerHTML = "";
+  // document.querySelector('#error-template').innerHTML = "";
   // document.getElementById("text-result").value = '';
   // document.getElementById('text-result').remove();
   document.querySelector(".block-result").style.visibility = "hidden";
