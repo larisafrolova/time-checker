@@ -97,7 +97,9 @@ async function fetchResultData (){
 function convertDate (input) {
   const newDateTimeArray = [];
   const transformedTimeDate = input.split(' ');
-  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dd, yyyy");
+  console.log("transformedTimeDate is "+transformedTimeDate);
+  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  console.log("newDate is "+newDate);
   newDateTimeArray.push(newDate);
   const newTime = transformedTimeDate[1];
   newDateTimeArray.push(newTime);
