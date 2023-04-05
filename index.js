@@ -28,6 +28,7 @@ const displayError = (message) => {
 };
 
 
+
 function getHttpRequest (method, url) {
   const promise = new Promise((resolve, reject) => {
     var xmlHttp = new XMLHttpRequest();
