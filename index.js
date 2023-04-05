@@ -15,6 +15,14 @@ const formBtn = document.querySelector('form');
 const resetButton = document.querySelector('.block-result__btn');
 
 
+formBtn.addEventListener('submit', event => {
+  event.preventDefault();
+  document.querySelector('.block-form__submit').style.visibility = 'hidden';
+  displayLoading();
+  fetchResultData();
+});
+
+
 
 const displayError = (message) => {
   const errorResult = document.querySelector('#error-result');
@@ -27,35 +35,18 @@ const displayError = (message) => {
   errorResult.replaceChildren(errorEl);
 };
 
-
-
-function getHttpRequest (method, url) {
-  const promise = new Promise((resolve, reject) => {
-    var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open(method, url, true); // true for asynchronous
-
-  xmlHttp.responseType = 'json';
-
-  xmlHttp.onload = function() {
-    if (xmlHttp.status >= 200 && xmlHttp.status < 300){
-      resolve (xmlHttp.response);
-    }
-    else {
-      reject (new Error ('Something went wrong!!!'));
-      hideLoading();
-      var errorMsg = JSON.stringify(xmlHttp.response.error.message);
-      displayError(errorMsg.slice(1,(errorMsg.length - 1)));
-    }
-  };
-
-  xmlHttp.onerror = function() {
-    reject (new Error('Failed to send request!!!'))
-  };
-  
-  xmlHttp.send(null);
-  });
-  return promise;
+function convertDate (input) {
+  const newDateTimeArray = [];
+  const transformedTimeDate = input.split(' ');
+  console.log("transformedTimeDate is "+transformedTimeDate);
+  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  console.log("newDate is "+newDate);
+  newDateTimeArray.push(newDate);
+  const newTime = transformedTimeDate[1];
+  newDateTimeArray.push(newTime);
+  return newDateTimeArray;
 }
+
 
 
 async function fetchResultData (){
@@ -94,25 +85,33 @@ async function fetchResultData (){
 }
 
 
-function convertDate (input) {
-  const newDateTimeArray = [];
-  const transformedTimeDate = input.split(' ');
-  console.log("transformedTimeDate is "+transformedTimeDate);
-  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
-  console.log("newDate is "+newDate);
-  newDateTimeArray.push(newDate);
-  const newTime = transformedTimeDate[1];
-  newDateTimeArray.push(newTime);
-  return newDateTimeArray;
+function getHttpRequest (method, url) {
+  const promise = new Promise((resolve, reject) => {
+    var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open(method, url, true); // true for asynchronous
+
+  xmlHttp.responseType = 'json';
+
+  xmlHttp.onload = function() {
+    if (xmlHttp.status >= 200 && xmlHttp.status < 300){
+      resolve (xmlHttp.response);
+    }
+    else {
+      reject (new Error ('Something went wrong!!!'));
+      hideLoading();
+      var errorMsg = JSON.stringify(xmlHttp.response.error.message);
+      displayError(errorMsg.slice(1,(errorMsg.length - 1)));
+    }
+  };
+
+  xmlHttp.onerror = function() {
+    reject (new Error('Failed to send request!!!'))
+  };
+  
+  xmlHttp.send(null);
+  });
+  return promise;
 }
-
-
-formBtn.addEventListener('submit', event => {
-  event.preventDefault();
-  document.querySelector('.block-form__submit').style.visibility = 'hidden';
-  displayLoading();
-  fetchResultData();
-});
 
 
 
