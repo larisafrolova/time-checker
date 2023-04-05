@@ -40,10 +40,10 @@ function convertDate (input) {
   const transformedTimeDate = input.split(' ');
   console.log("transformedTimeDate is "+transformedTimeDate);
   // const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
-  const newDate = Date.parse(transformedTimeDate[0]);
+  const newDate = Date.parse(transformedTimeDate[2]);
   console.log("newDate is "+newDate);
   newDateTimeArray.push(newDate);
-  const newTime = transformedTimeDate[1];
+  const newTime = transformedTimeDate[3];
   newDateTimeArray.push(newTime);
   return newDateTimeArray;
 }
