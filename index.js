@@ -1,3 +1,5 @@
+require('datejs');
+
 const loaderContainer = document.querySelector('.loader-container');
 
 const displayLoading = () => {
@@ -39,7 +41,7 @@ function convertDate (input) {
   const newDateTimeArray = [];
   const transformedTimeDate = input.split(' ');
   console.log("transformedTimeDate is "+transformedTimeDate);
-  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  const newDate = Date.parse(transformedTimeDate[0]);
   // const newDate = Date.parse(transformedTimeDate[0]);
   console.log("newDate is "+newDate);
   newDateTimeArray.push(newDate);
