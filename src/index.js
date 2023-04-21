@@ -1,4 +1,5 @@
 require('datejs');
+import "./style.css";
 
 const loaderContainer = document.querySelector('.loader-container');
 
@@ -18,10 +19,28 @@ const resetButton = document.querySelector('.block-result__btn');
 
 
 formBtn.addEventListener('submit', event => {
+  // console.log('find out btn is on!');
   event.preventDefault();
   document.querySelector('.block-form__submit').style.visibility = 'hidden';
   displayLoading();
   fetchResultData();
+});
+
+resetButton.addEventListener('click', function() {
+  // alert('test alert reset btn');
+  // console.log("reset btn is clicked");
+  document.querySelector('.block-form__submit').style.visibility = 'visible';
+  document.getElementById("form").reset();
+
+  if (document.querySelector("#text-result").innerHTML === ""){
+    console.log("i am in the table innerHTML");
+    document.querySelector('#error-result').innerHTML = "";
+  }
+  else {
+    console.log("i am in the error inner html");
+    document.querySelector("#text-result").innerHTML = "";
+  }
+  document.querySelector(".block-result").style.visibility = "hidden";
 });
 
 
@@ -41,7 +60,7 @@ function convertDate (input) {
   const newDateTimeArray = [];
   const transformedTimeDate = input.split(' ');
   console.log("transformedTimeDate is "+transformedTimeDate);
-  const newDate = Date.parse(transformedTimeDate[0]);
+  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
   // const newDate = Date.parse(transformedTimeDate[0]);
   console.log("newDate is "+newDate);
   newDateTimeArray.push(newDate);
@@ -118,17 +137,18 @@ function getHttpRequest (method, url) {
 
 
 
-function resetBtn () {
-  document.querySelector('.block-form__submit').style.visibility = 'visible';
-  document.getElementById("form").reset();
+// function resetBtn () {
 
-  if (document.querySelector("#text-result").innerHTML === ""){
-    console.log("i am in the table innerHTML");
-    document.querySelector('#error-result').innerHTML = "";
-  }
-  else {
-    console.log("i am in the error inner html");
-    document.querySelector("#text-result").innerHTML = "";
-  }
-  document.querySelector(".block-result").style.visibility = "hidden";
-}
+//   document.querySelector('.block-form__submit').style.visibility = 'visible';
+//   document.getElementById("form").reset();
+
+//   if (document.querySelector("#text-result").innerHTML === ""){
+//     console.log("i am in the table innerHTML");
+//     document.querySelector('#error-result').innerHTML = "";
+//   }
+//   else {
+//     console.log("i am in the error inner html");
+//     document.querySelector("#text-result").innerHTML = "";
+//   }
+//   document.querySelector(".block-result").style.visibility = "hidden";
+// }
