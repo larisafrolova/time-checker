@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "datejs": "^1.0.0-rc3"
+    "datejs": "^1.0.0-rc3",
+    "moment": "^2.29.4"
   },
   "name": "time-checker",
   "description": "Time checker is a website where you can check what time it will be in your area in compare to another time zone.",

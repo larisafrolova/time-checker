@@ -1,5 +1,8 @@
-require('datejs');
+// require('datejs');
 import "./style.css";
+
+var moment = require('moment');
+moment().format();
 
 const loaderContainer = document.querySelector('.loader-container');
 
@@ -60,7 +63,8 @@ function convertDate (input) {
   const newDateTimeArray = [];
   const transformedTimeDate = input.split(' ');
   console.log("transformedTimeDate is "+transformedTimeDate);
-  const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  // const newDate = Date.parse(transformedTimeDate[0]).toString("MMMM dS, yyyy");
+  const newDate = moment(transformedTimeDate[0]).format('dddd MMM YYYY');
   // const newDate = Date.parse(transformedTimeDate[0]);
   console.log("newDate is "+newDate);
   newDateTimeArray.push(newDate);
