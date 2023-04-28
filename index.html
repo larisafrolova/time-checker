@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html land="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Time Checker app</title>
+        <link rel="stylesheet" href="/dist/main.css">
+    <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+    <body>
+        <template id="result-template">
+            <table>
+                <tr>
+                    <th id="hostPlace"></th>
+                    <th id="localPlace"></th>
+                </tr>
+                <tr>
+                    <td id="hostTime"></td>
+                    <td id="localTime"></td>
+                </tr>
+                <tr>
+                    <td id="hostDate"></td>
+                    <td id="localDate"></td>
+                </tr>
+            </table>
+        </template>
+        <template id="error-template">
+            <p></p>
+            <p>Please check your cities and countries spelling!</p>
+        </template>
+        <div class="block block-header">
+            <h1>What time is the meeting?</h1>
+            <p>Plan your participation in international online meetings? Check what time it will be in your area when the meeting takes place.</p>
+        </div>
+        <form class="block block-form" name="myForm" id="form">
+            <div class="block-form__user-input">
+                <div class="block-form__form block-form__form--host">
+                    <h3 class="block-form__header">Host city</h3>
+                    <div class="block-form__item">
+                            <div class="block-form__label">
+                                <label for="hcity">City</label>
+                                <p class="block-form__validation-text">Enter your host city!</p>
+                            </div>
+                            <input class="block-form__input block-form__input--bold" type="text" id="hcity" name="city" value="Tomsk" required>
+                        </div>
+                    <div class="block-form__item">
+                        <div class="block-form__label">
+                            <label for="hcountry">Country</label>
+                            <p class="block-form__validation-text">Enter your host country!</p>
+                        </div>
+                        <input class="block-form__input block-form__input--bold" type="text" id="hcountry" name="country" value="Russia" required>
+                    </div>
+                    <div class="block-form__item">
+                        <div class="block-form__label">
+                            <label for="hdate">Date</label>
+                            <p class="block-form__validation-text">Enter your host date!</p>
+                        </div>
+                        <input class="block-form__input" type="date" id="hdate" name="date" value="" required>
+                    </div>
+                    <div class="block-form__item">
+                        <div class="block-form__label">
+                            <label for="hdate">Time</label>
+                            <p class="block-form__validation-text">Enter your host time!</p>
+                        </div>
+                        <input class="block-form__input" type="time" id="htime" name="time" required value="">
+                    </div>
+                </div>
+                <div class="block-form__form block-form__form--local">
+                    <h3 class="block-form__header block-form__header--local">Your location</h3>
+                        <div class="block-form__item">
+                            <div class="block-form__label">
+                                <label for="lcity">City</label>
+                                <p class="block-form__validation-text">Enter your local city!</p>
+                            </div>
+                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcity" name="city" value="Fresno" required>
+                        </div>
+                        <div class="block-form__item">
+                            <div class="block-form__label">
+                                <label for="lcountry">Country</label>
+                                <p class="block-form__validation-text">Enter your local country!</p>
+                            </div>
+                            <input class="block-form__input block-form__input--local block-form__input--bold" type="text" id="lcountry" name="country" value="USA" required>
+                        </div>
+                        <!-- <div class="block-form__item block-input__item--local" style="visibility: hidden">
+                            <label for="hdate">Date</label>
+                        <input class="block-input__input block-input__input--local" type="date" id="hdate" name="date" disabled>
+                        </div>
+                        <div class="block-form__item block-input__item--local" style="visibility: hidden">
+                            <label for="hdate">Time</label>
+                        <input class="block-input__input block-input__input--local" type="time" id="htime" name="time" disabled>
+                        </div> -->
+                </div>
+            </div>
+            <div class="block-form__submit">
+                <!-- <input class="block-submit__input" type="submit" value="Find out!" onclick="getInputValue();"> -->
+                <button class="block-form__btn" type="submit">Find out!</button>
+                <!-- <button class="block-submit__btn" type="submit">Reset</button> -->
+            </div>
+        </form>
+
+        <div class="block loader-container">
+            <div class="spinner">
+                <!-- <img src="images/Chasing arrows.gif" alt="loading-spinner"> -->
+            </div>
+        </div>
+        
+        <div class="block block-result">
+            <div id="text-result"></div>
+            <div id="error-result"></div>
+            <button class="block-result__btn" type="submit">Reset</button>
+        </div>
+        <!-- <script type="text/javascript" src="./node_modules/datejs/build/date.js"></script> -->
+        <script src="/dist/main.js"></script>
+    </body>
+</html>
+
